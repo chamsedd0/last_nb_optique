@@ -187,6 +187,7 @@ transform-origin: bottom left;
     width: 80%;
     height: 60%;
     overflow-y: scroll;
+    border: #1d2227 3px solid;
     background: url('./assets/backproducts.png') no-repeat center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
@@ -547,14 +548,14 @@ transform-origin: bottom left;
     
 }
 
-@media screen and (max-width: 580px){
+@media screen and (max-width: 480px){
 
     
     
 
     .container{
         width: 100%;
-        overflow-x: hidden;
+        
     }
 
     .arr {

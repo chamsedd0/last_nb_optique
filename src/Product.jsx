@@ -8,7 +8,7 @@ const Product = ({addElement, name, price, picture, status}) => {
             </div>
             <div className="description">
 
-                <div className="text">
+                <div className="text1">
                     <h2>{name}</h2>
                     <h3>{status ? price+'MAD' : 'Pas Disponible'}</h3>
                 </div>
@@ -32,7 +32,7 @@ const Card = styled.div`
     
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #ffffff;
     width: 330px; 
     max-width: 100%;
@@ -75,31 +75,45 @@ const Card = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 100%;
+        
         border-radius: 20px;
         gap: 2.5rem;
         
     }
 
 
-    h2{
+    .description h2{
         font-size: 1.2rem;
         letter-spacing: 2.5px;
     }
 
-    h3{
+    .description h3{
         font-size: 0.8rem;
         letter-spacing: 2.5px;
         font-weight: 300;
         
     }
 
-    .text {
+    .text1 {
+
+        text-align: center;
+
         display: flex;
         flex-direction: column;
-        gap: 5px;
-        text-align: center;
+        align-items: center;
+        justify-content: center;
         
+    }
+
+    .text1 h2{
+
+        font-size: 1rem;
+        max-width: 100%;
+
+    }
+    .text1 h3 {
+        font-size: 0.9rem;
+        font-weight: 200;
     }
     
 
@@ -169,7 +183,7 @@ const Card = styled.div`
 
     @media screen and (max-width: 480px){
 
-        width: 80%; 
+        
         
 
         .image1 {
@@ -187,10 +201,7 @@ const Card = styled.div`
 
             
         }
-        .text{
-            position: absolute;
-
-        }
+        
         
 
     }
