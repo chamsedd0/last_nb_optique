@@ -1,38 +1,637 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
 .App {
-  text-align: center;
+    scroll-behavior: smooth;
+    width: 100%;
+    height: auto;
+    background-color: #282828;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero {
+    
+    width: 100%;
+    height: 100vh;
+    background: url("https://i.ibb.co/PDyqBs5/hero-Image.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.arr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.arr svg {
+    margin-top: 2rem;
+    animation: bounce 0.6s ease-out infinite alternate;
 }
 
-.App-link {
-  color: #61dafb;
+.arr span {
+    color: rgba(40, 40, 40, 0.69);
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navigation {
+    position: fixed;
+    width: 100%;
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+}
+
+.links {
+    display: flex;
+    flex: 1.5;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 1rem;
+
+}
+
+.logo {
+    flex: 2;
+    justify-content: start;
+    background: url("./assets/logo.png") no-repeat;
+    width: 2rem;
+    height: 3rem;
+    margin-left: 3.5rem;
+    cursor: pointer;
+}
+
+.links a {
+    color: #282828;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.14625rem;
+    text-decoration: none;
+    position: relative;
+}
+
+
+  
+.links a::after {
+content: '';
+position: absolute;
+width: 100%;
+transform: scaleX(0);
+height: 2px;
+bottom: 0;
+left: 0;
+background-color: #1d2227;
+transform-origin: bottom left;
+transition: transform 0.25s ease-out;
+}
+
+.links a:hover::after {
+transform: scaleX(1);
+transform-origin: bottom left;
+}
+
+.about {
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #1d2227;
+    flex: 1;
+    padding: 1rem;
+}
+
+.about h2 {
+
+    color: #D6D6D6;
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.32rem;
+    margin-bottom: 3rem;
+}
+
+.about p {
+    color: #D9D9D9;
+    text-align: center;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2.86125rem;
+    letter-spacing: 0.21rem;
+}
+
+.about span {
+    margin-top: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.3125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 218%;
+    letter-spacing: 0.21rem;
+}
+
+.products {
+    width: 100%;
+    height: 60rem;
+    flex-shrink: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+.products h2 {
+    color: #484848;
+    text-align: center;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32rem;
+    
+}
+
+
+
+.container {
+    
+
+    width: 80%;
+    height: 60%;
+    overflow-y: scroll;
+    background: url('./assets/backproducts.png') no-repeat center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+    
+    
+}
+
+
+.contact {
+    width: 100%;
+    height: 25rem;
+    flex-shrink: 0;
+    background: #1d2227;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.info {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.info b {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    letter-spacing: 0.2rem;
+}
+
+.info p {
+    color: #D9D9D9;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.2rem;
+}
+
+.info h2 {
+    color: #f2f2f2;
+    text-align: center;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.2rem;
+}
+
+.menu {
+    display: none;
+}
+
+
+.image {
+    background: url('https://i.ibb.co/kx91J7F/small-Hero.png');
+    background-position: center;
+
+    flex: 1;
+    height: 100%;
+}
+
+.description1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 36rem;
+}
+
+.cart {
+    width: 4.375rem;
+    height: 4.375rem;
+    flex-shrink: 0;
+    border-radius: 4.75rem;
+    border: 1px solid #ADADAD;
+    background: rgba(255, 255, 255);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    cursor: pointer;
+    z-index: 4;
+    transition: all 0.2s ease;
+}
+
+
+
+.cart:hover {
+    opacity: 1;
+}
+
+.delivery {
+    height: fit-content;
+    border-bottom: 3px #1d2227 solid;
+    border-top: 3px #1d2227 solid;
+    background-color: white;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 2rem;
+}
+
+.delivery svg{
+    fill: #2f3841;
+}
+
+.delivery h2 {
+    font-weight: 600;
+    color: #2f3841;
+    font-size: 1rem;
+    letter-spacing: 4.5px;
+    text-align: center;
+    max-width: 80%;
+}
+
+.hamburger{
+    display: none;
+}
+
+  
+
+
+
+@keyframes bounce {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-1.2rem);
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .hero {
+        background: url('https://i.ibb.co/6BgZnfw/mobile-Hero2.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .hamburger {
+        position: relative;
+        cursor: pointer;
+        z-index: 3;
+        margin-right: 3rem;
+        display: flex;
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+      
+    .hamburger input {
+        display: none;
+    }
+      
+    .hamburger svg {
+        /* The size of the SVG defines the overall size */
+        height: 3em;
+        /* Define the transition for transforming the SVG */
+        transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .line {
+        fill: none;
+        stroke: #616e7b;
+        
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3;
+        /* Define the transition for transforming the Stroke */
+        transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .line-top-bottom {
+        stroke-dasharray: 12 63;
+      }
+      
+      .hamburger input:checked + svg {
+        transform: rotate(-45deg);
+      }
+      
+      .hamburger input:checked + svg .line-top-bottom {
+        stroke-dasharray: 20 300;
+        stroke-dashoffset: -32.42;
+      }
+
+      .links {
+        display: none;
+        
+      }
+
+      .arr span {
+        color: rgb(231, 231, 231);
+    }
+    .arr svg path{
+        stroke: rgb(231, 231, 231);
+    }
+}
+
+@media screen and (max-width: 850px){
+    .hero {
+        background: url('https://i.ibb.co/6BgZnfw/mobile-Hero2.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 92vh;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #1d2227;
+        position: fixed;
+        width: 100%;
+        height: 8vh;
+        bottom: 0;
+        left: 0;
+        padding: 0rem 7rem;
+        z-index: 3;
+    }
+
+
+    
+    .menu svg{
+        fill: white;
+    }
+
+
+
+    .cart {
+        width: 3rem;
+        height: 3rem;
+        bottom: 0.5rem;
+        right: 1rem;
+    }
+
+    .cart svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .links a{
+        display: none;
+
+    }
+    .logo {
+        display: none;
+    }
+
+    
+
+    .image {
+        display: none;
+    }
+
+    .arr {
+        margin-bottom: 2rem;
+    }
+
+    .navigation {
+        display: none;
+    }
+    .container{
+        width: 90%;
+    }
+
+    .products h2{
+        font-size: 1.25rem;
+        max-width: 85%;
+        margin-bottom: 4rem;
+    }
+    
+}
+
+@media screen and (max-width: 680px){
+
+    .hero {
+        background: url('https://i.ibb.co/XXxYg0t/mobile-Hero.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 90vh;
+    }
+
+    .menu {
+        height: 10vh;
+    }
+
+    .cart {
+        bottom: 1rem;
+    }
+
+    
+    .delivery {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .products h2{
+        font-size: 1.1rem;
+        max-width: 85%;
+        margin-bottom: 4rem;
+    }
+
+    .delivery svg {
+        height: 5rem;
+    }
+
+    .delivery h2 {
+        font-size: 0.9rem;
+    }
+
+    
+    .about h2{
+        font-size: 1rem;
+
+    }
+    .about p{
+        font-size: 0.8rem;
+        max-width: 85%;
+        line-height: 2rem;
+    }
+
+    .about span{
+        font-size: 0.9rem;
+        line-height: 2rem;
+        max-width: 85%;
+    }
+
+    
+
+    
+
+    .arr span {
+        color: rgba(217, 217, 217, 0.485);
+    }
+    .arr svg path{
+        stroke: rgba(217, 217, 217, 0.485);
+    }
+
+    
+}
+
+@media screen and (max-width: 580px){
+
+    
+    
+
+    .container{
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .arr {
+        margin-bottom: 3rem;
+    }
+
+    .arr span {
+        color: rgba(217, 217, 217, 0.9);
+    }
+    .arr svg path{
+        stroke: rgba(217, 217, 217, 0.9);
+    }
+    
+
+    .description1 {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .about h2{
+        font-size: 1rem;
+
+    }
+    .about p{
+        font-size: 0.8rem;
+        max-width: 85%;
+        line-height: 2rem;
+    }
+
+    .about span{
+        font-size: 0.9rem;
+        line-height: 2rem;
+        max-width: 85%;
+    }
+
+    
+
+    .products h2{
+        font-size: 1.1rem;
+        max-width: 85%;
+        margin-bottom: 2.5rem;
+    }
+
+    .contact {
+        padding-top: 2rem;
+    }
+
+    .contact h2 {
+        font-size: 1.1rem;
+    }
+
+    .contact b {
+        font-size: 0.8rem;
+    }
+
+    .contact p {
+        font-size: 0.9rem;
+    }
+    
+    .contact svg {
+        width: 35px;
+    }
+
+    .delivery {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .delivery svg {
+        height: 5rem;
+    }
+
+    .delivery h2 {
+        font-size: 0.9rem;
+    }
+
+    
+
 }
