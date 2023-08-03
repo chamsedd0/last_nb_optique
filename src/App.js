@@ -4,9 +4,8 @@ import './App.css';
 import { styled } from 'styled-components';
 import Product from './Product';
 
-import sample from './assets/sample2.png'
-import sample1 from './assets/sample1.png'
-import sample2 from './assets/sample4_1.png'
+
+import products from './products.json';
 
 function App() {
 
@@ -14,22 +13,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [inCart, setInCart] = useState([]);
-  const [products] = useState([
-
-    {name: 'glasses 1', price: 120, picture: sample, status: true}, 
-    {name: 'glasses 2', price: 120, picture: sample1, status: true}, 
-    {name: 'glasses 3', price: 120, picture: sample2, status: true}, 
-    {name: 'glasses 4', price: 120, picture: sample2, status: false}, 
-    {name: 'glasses 5', price: 120, picture: sample1, status: true}, 
-    {name: 'glasses 6', price: 120, picture: sample, status: true},
-    {name: 'glasses 1', price: 110, picture: sample, status: true}, 
-    {name: 'glasses 2', price: 100, picture: sample1, status: false}, 
-    {name: 'glasses 3', price: 220, picture: sample2, status: true}, 
-    {name: 'glasses 4', price: 320, picture: sample2, status: false}, 
-    {name: 'glasses 5', price: 150, picture: sample1, status: true}, 
-    {name: 'glasses 6', price: 1920, picture: sample, status: true}
   
-  ]);
 
   const [total, setTotal] = useState(0);
   const [updated, setUpdated] = useState(false);
@@ -249,16 +233,16 @@ function App() {
 
       <div className="delivery">
         <svg xmlns="http://www.w3.org/2000/svg" height="6em" viewBox="0 0 640 512"><path d="M48 0C21.5 0 0 21.5 0 48V368c0 26.5 21.5 48 48 48H64c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zM416 160h50.7L544 237.3V256H416V160zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-        <h2>Localisé à Kenitra, Livraison online partout au maroc</h2>
+        <h2>Localisé à Kenitra, Livraison partout au maroc</h2>
       </div>
 
       <div id='products' className="products">
         <h2>Notre collection de lunettes de soleil</h2>
         <div className="container">
           {
-            products.map((item)=>{
+            products.products.map((item)=>{
               return(
-                <Product addElement={addElement} name={item.name} picture={item.picture} price={item.price} status={item.status}/>
+                <Product addElement={addElement} name={item.name} picture={item.images[0]} price={item.price} status={item.status}/>
               )
             })
           }
@@ -354,7 +338,7 @@ const Cart = styled.div`
   padding: 1rem;
   background-color: white;
   opacity: ${props => props.isOpen ? 1 : 0};
-  transform: ${props => props.isOpen ? 'translate(0) rotate(0)' : 'translate(4rem) rotate(5deg)'};
+  transform: ${props => props.isOpen ? 'translate(0)' : 'translate(2rem)'};
   pointer-events: ${props => props.isOpen ? 'all' : 'none'};
   width: 25rem;
   height: 90vh;

@@ -32,9 +32,9 @@ const Card = styled.div`
     
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #ffffff;
-    width: 330px; 
+    width: 300px; 
     max-width: 100%;
     border-radius: 20px;
     padding: 2rem;
@@ -42,7 +42,7 @@ const Card = styled.div`
     z-index: 1.5;
     box-shadow: 0px 0px 20px 15px #0000001f;
     transition: all 0.2s ease-out;
-    opacity: ${props => props.status ? 1 : 0.5};
+    opacity: ${props => props.status ? 1 : 0.4};
     pointer-events: ${props => props.status ? 'all' : 'none'};
     justify-self: center;
     
@@ -71,28 +71,18 @@ const Card = styled.div`
 
     .description {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-        
+        height: fit-content;
         border-radius: 20px;
         gap: 2.5rem;
         
     }
 
 
-    .description h2{
-        font-size: 1.2rem;
-        letter-spacing: 2.5px;
-    }
-
-    .description h3{
-        font-size: 0.8rem;
-        letter-spacing: 2.5px;
-        font-weight: 300;
-        
-    }
+    
 
     .text1 {
 
@@ -102,18 +92,22 @@ const Card = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        height: fit-content;
         
     }
 
     .text1 h2{
-
+        letter-spacing: 2.5px;
         font-size: 1rem;
         max-width: 100%;
+        
 
     }
     .text1 h3 {
+        letter-spacing: 2.5px;
         font-size: 0.9rem;
         font-weight: 200;
+        
     }
     
 
@@ -198,7 +192,7 @@ const Card = styled.div`
             display: flex;
             flex-direction: row;
             width: 100%;
-
+            height: 200px;
             
         }
         
