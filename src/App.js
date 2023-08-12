@@ -13,6 +13,8 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [inCart, setInCart] = useState([]);
+  const [isClickable, setIsClickable] = useState(false);
+  const [ref, setref] = useState('')
   
 
   const [total, setTotal] = useState(0);
@@ -237,7 +239,7 @@ function App() {
       </div>
 
       <div id='products' className="products">
-        <h2>Notre collection de lunettes de soleil</h2>
+        <h2>Notre collection de lunettes</h2>
         <div className="container">
           {
             products.products.map((item)=>{
@@ -253,7 +255,7 @@ function App() {
       <div id='contact' className="contact">
         <div className="info">
           <h2>Contacts:</h2>
-          <p>Email:  <b>example@example.com</b></p>
+          <p>Email:  <b>Jihanedouiri14@gmail.com</b></p>
           <p>Phone:  <b>+212 693984772</b></p>
           <a href="https://www.instagram.com/nb_optique_">
             <svg xmlns="http://www.w3.org/2000/svg" width="45" height="49" viewBox="0 0 45 49" fill="none">
@@ -294,7 +296,7 @@ function App() {
                 <Image src={item.image_path} alt="" ></Image>
 
                 <div className="description2">
-                  <p>{item.name} </p>
+                  
                   <p className='price'>{item.price} <b>MAD</b></p>
                 </div>
 
@@ -318,12 +320,30 @@ function App() {
             )
           })}
         </Preview>
+          
         <CheckOut>
+          
+            <input onChange={(e)=>{
+
+              let inital = "mailto:nboptiquecommandes@gmail.com?subject=Commande&body=";
+              inCart.map((item, index)=>{
+                inital+=(" " +item.image_path+ "\n");
+              })
+              
+              inital+=("\n numero: "+e.target.value+"'");
+              
+              console.log(inital)
+            
+            }} 
+
+              className="input" type="text" placeholder='Entrer votre Numero de telephone'/>
+          
           <div className="total">
             Prix Total: 
           <span><b>{total}</b> MAD</span>
           </div>
-          <button className="checkout">Confirmer la commande</button>
+          <a className="checkout" isClickable={isClickable} href={ref}>Confirmer la commande</a>
+ 
         </CheckOut>
       </Cart>
 
@@ -352,6 +372,23 @@ const Cart = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  form {
+    width: 100%;
+    height: fit-content;
+  }
+  .input {
+    width: 95%;
+    height: 2.5rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+    letter-spacing: 1.2px;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+  }
+  .input::placeholder{
+    opacity: 0.5;
+  }
   
   h1 {
     font-size: 1.8rem;
@@ -431,6 +468,10 @@ const CheckOut = styled.div`
     font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .checkout:hover {

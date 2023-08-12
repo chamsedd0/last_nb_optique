@@ -9,7 +9,6 @@ const Product = ({addElement, name, price, picture, status}) => {
             <div className="description">
 
                 <div className="text1">
-                    <h2>{name}</h2>
                     <h3>{status ? price+'MAD' : 'Pas Disponible'}</h3>
                 </div>
                 
