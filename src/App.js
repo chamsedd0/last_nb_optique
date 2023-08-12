@@ -329,7 +329,7 @@ function App() {
             Prix Total: 
           <span><b>{total}</b> MAD</span>
           </div>
-          <a className="checkout" >Confirmer la commande</a>
+          <a className="checkout" href='#'>Confirmer la commande</a>
  
         </CheckOut>
       </Cart>
