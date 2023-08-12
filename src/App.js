@@ -13,8 +13,8 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [inCart, setInCart] = useState([]);
-  const [isClickable, setIsClickable] = useState(false);
-  const [ref, setref] = useState('')
+  
+  
   
 
   const [total, setTotal] = useState(0);
@@ -323,26 +323,13 @@ function App() {
           
         <CheckOut>
           
-            <input onChange={(e)=>{
-
-              let inital = "mailto:nboptiquecommandes@gmail.com?subject=Commande&body=";
-              inCart.map((item, index)=>{
-                inital+=(" " +item.image_path+ "\n");
-              })
-              
-              inital+=("\n numero: "+e.target.value+"'");
-              
-              console.log(inital)
-            
-            }} 
-
-              className="input" type="text" placeholder='Entrer votre Numero de telephone'/>
+            <input className="input" type="text" placeholder='Entrer votre Numero de telephone'/>
           
           <div className="total">
             Prix Total: 
           <span><b>{total}</b> MAD</span>
           </div>
-          <a className="checkout" isClickable={isClickable} href={ref}>Confirmer la commande</a>
+          <a className="checkout" >Confirmer la commande</a>
  
         </CheckOut>
       </Cart>
